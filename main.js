@@ -3,7 +3,7 @@
 
   var app = document.querySelector('#app');
   app.firebaseURL = 'https://polycodelabtodo.firebaseio.com';
-  app.firebaseProvider = 'anonymous';
+  app.firebaseProvider = 'google';
 
   app.items = [];
 
