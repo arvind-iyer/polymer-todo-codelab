@@ -29,4 +29,14 @@
   app.deleteItem = function(event) {
     this.splice('items', event.model.index, 1);
   };
+  
+  //Firebase event handling
+  app.onFirebaseError = function(event) {
+    this.$.errorToast.text = event.detail.message;
+    this.$.errorToast.show();
+  };
+  
+  app.onFirebaseLogin = function(event) {
+    this.ref = new Firebase(this.firebaseURL + '/user/' + event.detail.user.uid);
+  };
 })(document);
