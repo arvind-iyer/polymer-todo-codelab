@@ -20,37 +20,37 @@
   <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
   <link rel="import" href="bower_components/paper-toast/paper-toast.html">
   <link rel="import" href="bower_components/paper-input/paper-input.html">
-  <link rel="import" href="bower_components/firebase-element/firebase.html">
-  <link rel="import" href="bower_components/firebase-element/firebase-auth.html">
-  
-  
+  <link rel="import" href="bower_components/firebase-elements/firebase-auth.html">
+  <link rel="import" href="bower_components/firebase-elements/firebase.html">
+
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body unresolved>
   <template is="dom-bind" id="app">
     <firebase-auth
-        auto-login
-        redirect
-        location="[[firebaseURL]]"
-        provider="[[firebaseProvider]]"
-        on-error="onFirebaseError"
-        on-login="onFirebaseLogin"></firebase-auth>
+      auto-login
+      redirect
+      location="[[firebaseURL]]"
+      provider="[[firebaseProvider]]"
+      on-error="onFirebaseError"
+      on-login="onFirebaseLogin"></firebase-auth>
     <paper-toast id="errorToast"></paper-toast>
     <form on-submit="addItem">
-      <paper-input value="{{newItemValue}}" 
-              placeholder="Enter your item here.."></paper-input>
-      <paper-button oon-click="addItem">Add</paper-button>
+      <paper-input value="{{newItemValue}}"
+        placeholder="Enter your item here..."></paper-input>
+      <paper-button on-click="addItem">Add</paper-button>
     </form>
     <template is="dom-repeat" items="{{items}}">
       <div>
         <paper-icon-button icon="delete"
-              on-click="deleteItem"></paper-icon-button>
+          on-click="deleteItem"></paper-icon-button>
         <paper-checkbox on-change="toggleItem"
-              checked="{{item.done}}">[[item.text]]</paper-checkbox>
+          checked="{{item.done}}">[[item.text]]</paper-checkbox>
       </div>
     </template>
   </template>
   <script src="main.js"></script>
 </body>
+
 </html>
